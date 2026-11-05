@@ -145,7 +145,7 @@
       <a class="btn" href="#inschrijven">Schrijf je in</a>
     </div>
     <div class="hero-img">
-      <img src="img/sfeerbeeld-avond.jpg" alt="Een kop verveinethee op linnen met verse verveineblaadjes, in zacht avondlicht" width="928" height="1152">
+      <img src="img/sfeerbeeld-avond.jpg" onerror="this.onerror=null;this.src='sfeerbeeld-avond.jpg'" alt="Een kop verveinethee op linnen met verse verveineblaadjes, in zacht avondlicht" width="928" height="1152">
     </div>
   </section>
 
@@ -153,7 +153,7 @@
   <section class="story" id="verhaal">
     <div class="wrap">
       <div class="story-img reveal">
-        <img src="img/doosje-linnen.jpg" alt="Een doosje Maison Verveine thee op crème linnen" width="800" height="1481" loading="lazy">
+        <img src="img/doosje-linnen.jpg" onerror="this.onerror=null;this.src='doosje-linnen.jpg'" alt="Een doosje Maison Verveine thee op crème linnen" width="800" height="1481" loading="lazy">
       </div>
       <div class="reveal">
         <span class="label">Ons verhaal</span>
@@ -187,10 +187,10 @@
         <p>Zacht, warm en verfijnd. Voor bij linnen, kaarslicht en een goed boek.</p>
       </div>
       <div class="duo">
-        <figure class="reveal"><img src="img/doosje-avondlicht.jpg" alt="Een doosje Maison Verveine thee bij kaarslicht" width="800" height="1479" loading="lazy"><figcaption class="caption">Bij kaarslicht</figcaption></figure>
-        <figure class="reveal"><img src="img/sfeerbeeld-avond.jpg" alt="Een kop thee met verveineblaadjes op een linnen tafelkleed" width="928" height="1152" loading="lazy"><figcaption class="caption">Na het avondeten</figcaption></figure>
+        <figure class="reveal"><img src="img/doosje-avondlicht.jpg" onerror="this.onerror=null;this.src='doosje-avondlicht.jpg'" alt="Een doosje Maison Verveine thee bij kaarslicht" width="800" height="1479" loading="lazy"><figcaption class="caption">Bij kaarslicht</figcaption></figure>
+        <figure class="reveal"><img src="img/sfeerbeeld-avond.jpg" onerror="this.onerror=null;this.src='sfeerbeeld-avond.jpg'" alt="Een kop thee met verveineblaadjes op een linnen tafelkleed" width="928" height="1152" loading="lazy"><figcaption class="caption">Na het avondeten</figcaption></figure>
       </div>
-      <figure class="wide reveal"><img src="img/collectie.jpg" alt="Drie doosjes Maison Verveine thee naast elkaar op salie linnen met blaadjes" width="1800" height="1045" loading="lazy"><figcaption class="caption">De collectie op linnen</figcaption></figure>
+      <figure class="wide reveal"><img src="img/collectie.jpg" onerror="this.onerror=null;this.src='collectie.jpg'" alt="Drie doosjes Maison Verveine thee naast elkaar op salie linnen met blaadjes" width="1800" height="1045" loading="lazy"><figcaption class="caption">De collectie op linnen</figcaption></figure>
     </div>
   </section>
 
@@ -239,10 +239,20 @@
             </div>
           </div>
           <script>
-            function ml_webform_success_47708037(){var $=ml_jQuery||jQuery;$('.ml-subscribe-form-47708037 .row-success').show();$('.ml-subscribe-form-47708037 .row-form').hide();}
+            // Verstuurt het formulier naar MailerLite en toont daarna het succesbericht
+            (function(){
+              var box=document.getElementById('mlb2-47708037');
+              var form=box.querySelector('form'), btn=box.querySelector('button.primary:not(.loading)'), wait=box.querySelector('button.loading');
+              form.addEventListener('submit',function(e){
+                e.preventDefault();
+                if(!form.checkValidity()){form.reportValidity();return;}
+                btn.style.display='none'; wait.style.display='block';
+                fetch(form.action,{method:'POST',mode:'no-cors',body:new FormData(form)})
+                  .then(function(){box.querySelector('.row-form').style.display='none';box.querySelector('.row-success').style.display='block';})
+                  .catch(function(){btn.style.display='block';wait.style.display='none';alert('Er ging iets mis. Probeer het later opnieuw.');});
+              });
+            })();
           </script>
-          <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519"></script>
-          <script>fetch("https://assets.mailerlite.com/jsonp/2748417/forms/202559723421041769/takel")</script>
           <!-- ===== EINDE MAILERLITE-FORMULIER ===== -->
         </div>
       </div>
