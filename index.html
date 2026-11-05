@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maison Verveine · Het moment waarop je avond zacht wordt</title>
+<meta name="description" content="Maison Verveine: cafeïnevrije verveinethee voor na het avondeten. Schrijf je in en ontvang als eerste ons avondritueel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --antraciet:#2E2E2E;
+    --almond:#F0EAD8;
+    --vanilla:#F1EADA;
+    --meadow:#ACB090;
+    --olive:#6F6C43;
+    --sand:#CEC1A8;
+    --mahogany:#584738;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--almond);color:var(--antraciet);font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%;height:auto}
+  h1,h2,h3,.logo,.btn,.label{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;letter-spacing:.04em}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+
+  /* header */
+  header{position:absolute;top:0;left:0;right:0;z-index:5}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;height:84px}
+  .logo{font-size:26px;color:var(--antraciet);text-decoration:none;letter-spacing:.08em}
+  .logo small{display:block;font-size:12px;letter-spacing:.5em;line-height:1;margin-bottom:-2px}
+  .nav-cta{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.08em;color:var(--antraciet);text-decoration:none;border-bottom:1px solid var(--antraciet);padding-bottom:2px}
+
+  /* hero */
+  .hero{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch}
+  .hero-text{display:flex;flex-direction:column;justify-content:center;padding:140px 56px 80px max(24px,calc((100vw - 1160px)/2 + 24px))}
+  .label{font-size:16px;letter-spacing:.3em;color:var(--olive);margin-bottom:18px}
+  .hero h1{font-size:clamp(56px,7.4vw,104px);line-height:.92;margin-bottom:28px}
+  .hero p{font-size:clamp(22px,2vw,26px);font-style:italic;max-width:30ch;margin-bottom:40px}
+  .hero-img{position:relative;overflow:hidden}
+  .hero-img img{width:100%;height:100%;object-fit:cover}
+  .btn{display:inline-block;align-self:flex-start;background:var(--olive);color:var(--almond);text-decoration:none;font-size:20px;letter-spacing:.1em;padding:16px 34px;border-radius:999px;border:0;cursor:pointer;transition:background .3s}
+  .btn:hover{background:var(--mahogany)}
+
+  /* story */
+  .story{padding:140px 0;background:var(--vanilla)}
+  .story .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:96px;align-items:center}
+  .story-img{border-radius:4px;overflow:hidden;aspect-ratio:4/5}
+  .story-img img{width:100%;height:100%;object-fit:cover}
+  h2{font-size:clamp(44px,5vw,68px);line-height:.95;margin-bottom:28px}
+  .story p{margin-bottom:20px;max-width:52ch}
+  .story p:first-of-type::first-letter{font-family:'Bebas Neue',sans-serif;font-size:3.2em;float:left;line-height:.85;margin:6px 10px 0 0;color:var(--olive)}
+
+  /* ritual */
+  .ritual{padding:140px 0;background:var(--antraciet);color:var(--almond)}
+  .ritual .label{color:var(--meadow)}
+  .ritual h2{margin-bottom:64px}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;counter-reset:s}
+  .step{border-top:1px solid rgba(240,234,216,.3);padding-top:28px}
+  .step::before{counter-increment:s;content:"0" counter(s);font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.2em;color:var(--meadow);display:block;margin-bottom:14px}
+  .step h3{font-size:34px;margin-bottom:10px}
+  .step p{font-style:italic;opacity:.85}
+
+  /* collection */
+  .collection{padding:140px 0 0}
+  .collection .head{text-align:center;max-width:720px;margin:0 auto 56px}
+  .collection .head p{font-style:italic;font-size:23px}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .duo img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:4px}
+  .wide{margin-top:24px}
+  .wide img{width:100%;border-radius:4px}
+  .caption{font-family:'Bebas Neue',sans-serif;letter-spacing:.2em;font-size:14px;color:var(--olive);margin-top:10px}
+
+  /* signup */
+  .signup{padding:140px 0}
+  .signup .box{background:var(--meadow);border-radius:6px;display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:72px;align-items:center}
+  .signup h2{margin-bottom:18px}
+  .signup p{font-style:italic;font-size:23px;max-width:34ch}
+  .form-slot{background:var(--almond);border-radius:6px;padding:36px;min-height:280px}
+  /* placeholder tot het MailerLite-formulier erin staat */
+  .form-placeholder{border:1px dashed var(--olive);border-radius:4px;padding:28px;text-align:center;font-style:italic}
+  .form-placeholder strong{display:block;font-family:'Bebas Neue',sans-serif;font-style:normal;font-weight:400;letter-spacing:.1em;font-size:22px;margin-bottom:8px}
+
+  /* footer */
+  footer{background:var(--antraciet);color:var(--almond);padding:72px 0 40px;text-align:center}
+  footer .logo{color:var(--almond);font-size:34px;display:inline-block;margin-bottom:10px}
+  footer .slogan{font-style:italic;margin-bottom:28px}
+  footer nav a{color:var(--almond);margin:0 14px;font-family:'Bebas Neue',sans-serif;letter-spacing:.12em;font-size:16px;text-decoration:none;opacity:.8}
+  footer nav a:hover{opacity:1}
+  footer .fine{font-size:15px;opacity:.55;margin-top:36px;line-height:1.5}
+
+  /* zachte fade-in */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  @media (max-width:900px){
+    body{font-size:19px}
+    .hero{grid-template-columns:1fr;min-height:auto}
+    .hero-text{padding:120px 24px 56px}
+    .hero-img{height:70vh}
+    .story,.ritual,.collection,.signup{padding:88px 0}
+    .collection{padding-bottom:0}
+    .story .wrap,.signup .box{grid-template-columns:1fr;gap:40px}
+    .steps{grid-template-columns:1fr;gap:36px}
+    .signup .box{padding:40px 24px}
+    .form-slot{padding:24px}
+  }
+  @media (max-width:560px){.duo{grid-template-columns:1fr}}
+
+  /* MailerLite-formulier in huisstijl */
+  .ml-form .ml-field-group{margin-bottom:14px}
+  .ml-form label.veld{display:block;font-family:'Bebas Neue',sans-serif;letter-spacing:.08em;font-size:17px;margin-bottom:6px;color:var(--antraciet)}
+  .ml-form input[type=text],.ml-form input[type=email]{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid var(--sand);border-radius:4px;background:#fff;font:inherit;font-size:16px;color:var(--antraciet)}
+  .ml-form input:focus{outline:2px solid var(--olive);outline-offset:1px}
+  .ml-form .optin{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.4;margin:6px 0 18px}
+  .ml-form .optin input{margin-top:4px;accent-color:var(--olive);width:18px;height:18px;flex:none}
+  .ml-form button.primary{width:100%;background:var(--olive);color:var(--almond);border:0;border-radius:4px;padding:14px;font-family:'Bebas Neue',sans-serif;letter-spacing:.12em;font-size:20px;cursor:pointer}
+  .ml-form button.primary:hover{background:var(--antraciet)}
+  .ml-form .privacy{max-width:none;font-size:14px;margin-top:12px;opacity:.8}
+  .ml-form .row-success h4{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:30px;letter-spacing:.06em;margin:0 0 8px}
+  .ml-error input{border-color:#a33!important}
+  .ml-error .optin{color:#a33}
+  .ml-form .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><small>Maison</small>Verveine</a>
+    <a class="nav-cta" href="#inschrijven">Schrijf je in</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <span class="label">Cafeïnevrije verveinethee</span>
+      <h1>Het moment waarop je avond zacht wordt</h1>
+      <p>Cafeïnevrije verveinethee voor na het avondeten. Voor wie de dag rustig wil afsluiten.</p>
+      <a class="btn" href="#inschrijven">Schrijf je in</a>
+    </div>
+    <div class="hero-img">
+      <img src="img/sfeerbeeld-avond.jpg" alt="Een kop verveinethee op linnen met verse verveineblaadjes, in zacht avondlicht" width="928" height="1152">
+    </div>
+  </section>
+
+  <!-- VERHAAL -->
+  <section class="story" id="verhaal">
+    <div class="wrap">
+      <div class="story-img reveal">
+        <img src="img/doosje-linnen.jpg" alt="Een doosje Maison Verveine thee op crème linnen" width="800" height="1481" loading="lazy">
+      </div>
+      <div class="reveal">
+        <span class="label">Ons verhaal</span>
+        <h2>Over Maison Verveine</h2>
+        <p>Na het avondeten verandert er iets. Het huis wordt stiller, het licht zachter. Dat moment verdient een eigen ritueel.</p>
+        <p>Maison Verveine maakt thee van verveine, ook bekend als citroenverbena: een blad met een frisse citroengeur en een zachte smaak. Van nature cafeïnevrij, dus je drinkt het zonder dat je slaap eronder lijdt.</p>
+        <p><em>Eén kruid, één moment, meer niet.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RITUEEL -->
+  <section class="ritual" id="ritueel">
+    <div class="wrap">
+      <span class="label">Het ritueel</span>
+      <h2>Vijf minuten voor jezelf</h2>
+      <div class="steps">
+        <div class="step reveal"><h3>Ketel aan</h3><p>Laat het water koken en even afkoelen tot ongeveer 90 graden.</p></div>
+        <div class="step reveal"><h3>Telefoon weg</h3><p>Eén zakje, één kop, geen haast.</p></div>
+        <div class="step reveal"><h3>Vijf minuten</h3><p>Laat de thee trekken. Laat jezelf ook even.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLECTIE -->
+  <section class="collection">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="label">De collectie</span>
+        <h2>Thee voor stille avonden</h2>
+        <p>Zacht, warm en verfijnd. Voor bij linnen, kaarslicht en een goed boek.</p>
+      </div>
+      <div class="duo">
+        <figure class="reveal"><img src="img/doosje-avondlicht.jpg" alt="Een doosje Maison Verveine thee bij kaarslicht" width="800" height="1479" loading="lazy"><figcaption class="caption">Bij kaarslicht</figcaption></figure>
+        <figure class="reveal"><img src="img/sfeerbeeld-avond.jpg" alt="Een kop thee met verveineblaadjes op een linnen tafelkleed" width="928" height="1152" loading="lazy"><figcaption class="caption">Na het avondeten</figcaption></figure>
+      </div>
+      <figure class="wide reveal"><img src="img/collectie.jpg" alt="Drie doosjes Maison Verveine thee naast elkaar op salie linnen met blaadjes" width="1800" height="1045" loading="lazy"><figcaption class="caption">De collectie op linnen</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- INSCHRIJVEN -->
+  <section class="signup" id="inschrijven">
+    <div class="wrap">
+      <div class="box reveal">
+        <div>
+          <span class="label" style="color:var(--antraciet)">Binnenkort</span>
+          <h2>Word een van de eersten</h2>
+          <p>Maison Verveine komt binnenkort naar jouw avond. Schrijf je in en ontvang als eerste ons avondritueel en nieuws over de lancering.</p>
+        </div>
+        <div class="form-slot">
+          <!-- ===== MAILERLITE-FORMULIER (HTML-embed, opgemaakt in huisstijl) ===== -->
+          <div id="mlb2-47708037" class="ml-form ml-form-embedContainer ml-subscribe-form ml-subscribe-form-47708037">
+            <div class="ml-form-embedBody row-form">
+              <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2748417/forms/202559723421041769/subscribe" data-code="" method="post" target="_blank">
+                <div class="ml-form-formContent">
+                  <div class="ml-field-group ml-field-name">
+                    <label class="veld" for="ml-naam">Voornaam</label>
+                    <input id="ml-naam" type="text" name="fields[name]" placeholder="Je voornaam" autocomplete="given-name">
+                  </div>
+                  <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                    <label class="veld" for="ml-email">E-mailadres</label>
+                    <input id="ml-email" type="email" name="fields[email]" placeholder="naam@voorbeeld.be" autocomplete="email" aria-required="true">
+                  </div>
+                  <div class="ml-field-group ml-field-company ml-validate-required">
+                    <label class="optin" for="checkbox-47708037-23-0">
+                      <input name="fields[company][]" type="checkbox" value="Ja, ik wil e-mails van Maison Verveine ontvangen" id="checkbox-47708037-23-0" required>
+                      <span>Ja, ik wil e-mails van Maison Verveine ontvangen. Je kan je altijd uitschrijven.</span>
+                    </label>
+                  </div>
+                </div>
+                <input type="hidden" name="ml-submit" value="1">
+                <div class="ml-form-embedSubmit">
+                  <button type="submit" class="primary">Schrijf me in</button>
+                  <button disabled style="display:none" type="button" class="loading primary">Even geduld…</button>
+                </div>
+                <input type="hidden" name="anticsrf" value="true">
+                <p class="privacy">We gebruiken je gegevens alleen om je deze mails te sturen (via MailerLite) en delen ze met niemand.</p>
+              </form>
+            </div>
+            <div class="ml-form-successBody row-success" style="display:none">
+              <h4>Welkom bij Maison Verveine</h4>
+              <p>Fijn dat je erbij bent. Check je mailbox: je eerste avondritueel is onderweg.</p>
+            </div>
+          </div>
+          <script>
+            function ml_webform_success_47708037(){var $=ml_jQuery||jQuery;$('.ml-subscribe-form-47708037 .row-success').show();$('.ml-subscribe-form-47708037 .row-form').hide();}
+          </script>
+          <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519"></script>
+          <script>fetch("https://assets.mailerlite.com/jsonp/2748417/forms/202559723421041769/takel")</script>
+          <!-- ===== EINDE MAILERLITE-FORMULIER ===== -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top"><small>Maison</small>Verveine</a>
+    <p class="slogan">Het moment waarop je avond zacht wordt.</p>
+    <nav>
+      <a href="#verhaal">Ons verhaal</a>
+      <a href="#ritueel">Het ritueel</a>
+      <a href="#inschrijven">Inschrijven</a>
+    </nav>
+    <p class="fine">Maison Verveine is een fictief merk, gemaakt voor een schoolopdracht (Creative Automation, Arteveldehogeschool).<br>
+    Beelden gemaakt en bewerkt met Adobe Firefly en Photoshop (generatieve AI). Teksten geschreven met Claude.<br>
+    We gebruiken je gegevens alleen om je e-mails van Maison Verveine te sturen. Je kunt je altijd uitschrijven.</p>
+  </div>
+</footer>
+
+<script>
+  // zachte fade-in bij het scrollen
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
